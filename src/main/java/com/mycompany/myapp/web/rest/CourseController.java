@@ -30,6 +30,14 @@ public class CourseController {
         return new ResponseEntity<>(allCourses, HttpStatus.OK);
     }
 
+    @GetMapping(path = "/api/course/findAllCoursesLargerThan10", produces = "application/json")
+    public HttpEntity<List<CourseDto>> findAllCoursesLargerThan10(){
+
+        List<CourseDto> allCourses = courseService.findAllCoursesLargerThan10();
+
+        return new ResponseEntity<>(allCourses, HttpStatus.OK);
+    }
+
     @GetMapping(path = "/api/course/findAllCoursesDto", produces = "application/json")
     public HttpEntity<List<CourseDto>> findAllCoursesDto(){
         List<CourseDto> allCourses = courseService.findAllCoursesDtoFromDB();

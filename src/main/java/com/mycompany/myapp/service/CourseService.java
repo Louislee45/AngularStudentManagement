@@ -45,7 +45,22 @@ public class CourseService {
             return courseDtos;
         }
 
-        return courseDtos;
+        //return courseDtos;
+        return courseRepository.findAllCoursesDto();
+    }
+
+    public List<CourseDto> findAllCoursesLargerThan10() {
+
+        //Cache
+        List<CourseDto> courses = new ArrayList<>();
+
+        for(CourseDto c : courseRepository.findAllCoursesDto()) {
+            if(c.getCourseName().length() > 10) {
+                courses.add(c);
+            }
+        }
+
+        return courses;
     }
 
     public List<CourseDto> findAllCoursesDtoFromDB(){
@@ -81,7 +96,7 @@ public class CourseService {
         Course courseBeingSaved = Course.builder()
             .courseName(course.getCourseName())
             .courseContent(course.getCourseContent())
-            .courseLocation(course.getCourseContent())
+            .courseLocation(course.getCourseLocation())
             .teacherId(course.getTeacherId())
             .build();
 
