@@ -60,6 +60,7 @@ public class CourseController {
             courseService.addCourse(course);
             return HttpStatus.OK;
         } catch (Exception e) {
+            //System.out.println(e);
             return HttpStatus.BAD_REQUEST;
         }
     }
@@ -94,13 +95,13 @@ public class CourseController {
         }
     }
 
-    @PostMapping(path = "/api/course/addCourseToStudent/{courseName}", produces = "application/js")
-    public HttpStatus addCourseToStudent(@NotNull @PathVariable("courseName") UserCourse userCourse) {
-        try {
-            courseService.addCourseToStudent(userCourse);
-            return HttpStatus.OK;
-        } catch (Exception e) {
-            return HttpStatus.BAD_REQUEST;
-        }
-    }
+//    @PostMapping(path = "/api/course/addCourseToStudent/{courseName}", produces = "application/js")
+//    public HttpStatus addCourseToStudent(@NotNull @PathVariable("courseName") UserCourse userCourse) {
+//        try {
+//            courseService.addCourseToStudent(userCourse);
+//            return HttpStatus.OK;
+//        } catch (Exception e) {
+//            return HttpStatus.BAD_REQUEST;
+//        }
+//    }
 }
